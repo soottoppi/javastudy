@@ -5,12 +5,11 @@ import java.util.Scanner;
 public class Prob3 {
 	
 	public static void main(String[] args) {
-		int num;
-		int resultValue = 0;
+     	int resultValue = 0;
 		Scanner scanner = new Scanner(System.in);
 		
 		System.out.print("숫자를 입력하세요 : ");
-		num = scanner.nextInt();
+		int num = scanner.nextInt();
 		if(num > 0) {
 			if(num % 2 == 0) {
 				for(int i=0; i<=num ; i+=2) {
