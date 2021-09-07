@@ -22,7 +22,7 @@ public class Prob02 {
 		}
 		
 		/* 출력 */
-		System.out.println("평균은 " + sum / intArray.length + "입니다.");
+		System.out.println("평균은 " + (sum / intArray.length) + "입니다.");
 		/* 자원정리 */
 		scanner.close();
 	}
