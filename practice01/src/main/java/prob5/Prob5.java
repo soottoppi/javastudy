@@ -5,29 +5,27 @@ public class Prob5 {
 	public static void main(String[] args) {
 		int numLength;
 		int rem;
-		
+		int num;
+		String resultText; 
+		boolean isJJak;
 		
 		for(int i=1; i<100; i++) {
-			boolean isJJak = false;
-			String resultText ="";
-			int div = 1;
-			
+			num = i;
+			resultText = "";
+			isJJak = false;
 			numLength = (int)(Math.log10(i)+1);
-			for(int j=0; j < numLength; j++) {
-				rem = i % 10;
-				
-				if(i % div == 3 || i % div == 6 || i % div == 9) {
+			
+			for(int j=0; j<numLength; j++) {
+				rem = num % 10;
+				if(rem == 3 || rem == 6 || rem == 9) {
 					resultText += "짝";
 					isJJak = true;
 				}
-				rem /= 10;
-				
+				num /= 10;
 			}
 			if(isJJak) {
 				System.out.println(i + " " + resultText);	
 			}
-			
 		}
-		
 	}
 }
