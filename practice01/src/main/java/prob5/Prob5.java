@@ -17,7 +17,7 @@ public class Prob5 {
 			
 			for(int j=0; j<numLength; j++) {
 				rem = num % 10;
-				if(rem == 3 || rem == 6 || rem == 9) {
+				if(rem % 3 == 0 && rem != 0) {
 					resultText += "짝";
 					isJJak = true;
 				}
