@@ -12,7 +12,7 @@ public class Prob01 {
 		
 		for(int i=0; i < MONEYS.length; i++) {
 			int res = won / MONEYS[i];
-			System.out.println(MONEYS[i] + "원 : " +	 res + "개");
+			System.out.println(MONEYS[i] + "원 : " + res + "개");
 			won -= MONEYS[i] * res;
 		}
 
