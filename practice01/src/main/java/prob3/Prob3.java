@@ -13,7 +13,7 @@ public class Prob3 {
 		if(num > 0) {
 			if(num % 2 == 0) {
 				for(int i=0; i<=num ; i+=2) {
-					resultValue += i; 
+					resultValue += i;
 				}
 				System.out.println("결과 값 : " + resultValue);
 
