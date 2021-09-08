@@ -6,4 +6,6 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>practice02</artifactId>
+  <packaging>jar</packaging>
+  
 </project>
