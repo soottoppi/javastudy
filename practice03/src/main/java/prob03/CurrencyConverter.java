@@ -5,13 +5,11 @@ public class CurrencyConverter {
 
 	public static double  toDollar(double won) {
       // 한국 원화를 달러로 변환
-		double dollar = won / rate;
-		return dollar;
+		return won / rate;
 	}
 	public static double  toKRW(double dollar) {
       // 달러를 한국 원화로 변환
-		double won = dollar / rate;
-		return won;
+		return dollar * rate;
 	}
 	public static void setRate(double r) {
        // 환율 설정(KRW/$1)
