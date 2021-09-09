@@ -1,7 +1,17 @@
-package paint;
+package com.douzone.paint.point;
+
+import java.util.*;
 
 public class ColorPoint extends Point {
 	private String color;
+	
+	public ColorPoint(int x, int y, String Color) {
+		super(x,y);
+//		setX(x);
+//		setY(y);
+		List l = new ArrayList();
+		this.color = color;
+	}
 
 	public String getColor() {
 		return color;
