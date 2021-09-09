@@ -33,6 +33,9 @@ public class Main {
 //		drawCircle(circle);
 //		drawShape(circle);
 		draw(circle);
+		
+		GraphicText graphicText = new GraphicText("고양이");
+		draw(graphicText);
 	}
 	
 	public static void draw(Drawable drawable) {
