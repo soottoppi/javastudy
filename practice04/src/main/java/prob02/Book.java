@@ -14,7 +14,7 @@ public class Book {
 	}
 
 	public void rent() {
-		this.stateCode = 0;
+		this.stateCode = 0;	// 대여중 상태로 전환
 		System.out.println(this.title + "이(가) 대여 됐습니다.");
 	}
 	
