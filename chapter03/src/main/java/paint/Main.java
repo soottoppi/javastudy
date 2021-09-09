@@ -13,8 +13,9 @@ public class Main {
 		point2.setY(200);
 		((ColorPoint)point2).setColor("red");
 		drawPoint(point2);
-		
+
 		point2.show(false);
+		point2.show(true);
 	}
 	
 	public static void drawPoint(Point point) {
