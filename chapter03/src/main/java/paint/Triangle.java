@@ -46,9 +46,4 @@ public class Triangle extends Shape {
 	public final void setY3(int y3) {
 		this.y3 = y3;
 	}
-
-	
-	
-
-	
 }
