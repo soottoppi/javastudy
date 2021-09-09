@@ -7,8 +7,14 @@ public class Main {
 		point1.setX(10);
 		point1.setY(10);
 		drawPoint(point1);
-//		point1.disapear();
-		point1.show(false);
+		
+		Point point2 = new ColorPoint();
+		point2.setX(100);
+		point2.setY(200);
+		((ColorPoint)point2).setColor("red");
+		drawPoint(point2);
+		
+		point2.show(false);
 	}
 	
 	public static void drawPoint(Point point) {
