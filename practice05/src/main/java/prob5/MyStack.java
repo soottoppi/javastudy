@@ -4,16 +4,15 @@ public class MyStack {
 	private int size;
 	private int top = -1;
 	String[] stringArr = null;
-	
+
 	public MyStack(int size) {
 		this.size = size;
 		stringArr = new String[size];
 	}
 
 	public void push(String string) {
-		top++;
-		if(top < size) {
-			stringArr[top] = string;			
+		if (++top < size) {
+			stringArr[top] = string;
 		}
 	}
 
@@ -21,7 +20,10 @@ public class MyStack {
 		return top < 0;
 	}
 
-	public String pop() {
+	public String pop() throws MyStackException {
+		if (top < 0) {
+			throw new MyStackException();
+		}
 		return stringArr[top--];
 	}
 
@@ -48,6 +50,5 @@ public class MyStack {
 	final void setSize(int size) {
 		this.size = size;
 	}
-	
-	
+
 }

@@ -2,7 +2,7 @@ package prob5;
 
 public class MainApp {
 
-	public static void main(String[] args)  {
+	public static void main(String[] args) {
 		try {
 			MyStack stack = new MyStack(5);
 			stack.push("Hello");
@@ -13,7 +13,7 @@ public class MainApp {
 
 			while (stack.isEmpty() == false) {
 				String s = stack.pop();
-				System.out.println( s );
+				System.out.println(s);
 			}
 
 			System.out.println("======================================");
@@ -23,11 +23,9 @@ public class MainApp {
 
 			System.out.println(stack.pop());
 			System.out.println(stack.pop());
-			
-		} catch ( MyStackException ex) {
-			System.out.println( "stack is empty");
+
+		} catch (MyStackException ex) {
+			System.out.println(ex);
 		}
-
 	}
-
 }
