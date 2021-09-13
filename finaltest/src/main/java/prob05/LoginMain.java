@@ -35,8 +35,27 @@ public class LoginMain {
 		}
 	}
 	
-	public static void login(List<User> users, User user ){
+	public static void login(List<User> users, User user ) {
 		/* 코드 작성 */
-		// 리스트 뒤져서
+		// 1 	리스트를 돌린다
+		// 2	매개변수로 넘어온 객체가 User 객체인지 체크
+		// 3 	id가 틀리면 다음 리스트로 continue
+		// 4 	id가 맞으면 pw를 체크한다.
+		// 5	pw가 틀리면 PasswordDismatchException 예외 발생
+		// 6	pw가 맞으면 return
+		// 7	모든 리스트를 체크 후 빠져 나왔을 경우 해당 id가 없는것으로 판단
+		// 8	UserNotFoundException 예외 발생
+		for(User userList : users) {
+ 			if(user instanceof User) {
+				if(!userList.getId().equals(user.getId())) {
+					continue;
+				} else if(!userList.getPassword().equals(user.getPassword())) {
+					throw new PasswordDismatchException();	// id는 일치하지만 pw를 틀릴 경우 예외 발생
+				} else {
+					return;
+				}
+			}
+		}
+		throw new UserNotFoundException();	// 리스트를 다 돌려도 해당 id가 없으면 예외 발생
 	}
 }

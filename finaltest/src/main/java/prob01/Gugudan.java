@@ -1,6 +1,8 @@
 package prob01;
 
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Gugudan {
 
@@ -11,12 +13,11 @@ public class Gugudan {
 		int r = randomize(1, 9);
 
 		resultNumber = l * r;
-
+		
+		
 		int[] answerNumbers = randomizeAnswers();
 		int loc = randomize(0, 8);
 		answerNumbers[loc] = resultNumber;
-		
-		//
 
 		System.out.println(l + " x " + r + " = ?");
 
@@ -34,6 +35,7 @@ public class Gugudan {
 		System.out.print("\n\n");
 		System.out.print("answer:");
 
+		
 		Scanner s = new Scanner(System.in);
 		int answer = s.nextInt();
 		s.close();
@@ -48,8 +50,29 @@ public class Gugudan {
 
 	private static int[] randomizeAnswers() {
 		/* 코드 작성(수정 가능) */
+		Set<Integer> set = new HashSet<>();
+
 		final int COUNT_ANSWER_NUMBER = 9;
 		int[] boardNumbers = new int[COUNT_ANSWER_NUMBER];
+		
+		// 랜덤한 값을 boardNumbers 배열에 입력
+		for(int i=0; i<COUNT_ANSWER_NUMBER; i++) {
+			int randomValue = randomize(1, 9) * randomize(1, 9);
+			if(set.contains(randomValue)) {
+				// HashSet에 있을 경우 계속해서 랜덤값 생성
+				while(true) {
+					randomValue = randomize(1, 9) * randomize(1, 9);
+					if(!set.contains(randomValue)) {
+						break;
+					}
+				}
+			}
+			set.add(randomValue);
+			boardNumbers[i] = randomValue;
+		}
+		
 		return boardNumbers;
 	}
+	
+	
 }
