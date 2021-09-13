@@ -1,18 +1,21 @@
 package prob6;
 
 public class RectTriangle extends Shape {
-
+	private double width;
+	private double height;
+	
 	public RectTriangle(double width, double height) {
-		super(width, height);
+		this.width = width;
+		this.height = height;
 	}
 
 	@Override
 	public double getArea() {
-		return (getWidth() * getHeight()) / 2;
+		return (width * height) / 2;
 	}
 
 	@Override
 	public double getPerimeter() {
-		return getWidth() + getHeight() + Math.sqrt(Math.pow(getWidth(), 2) + Math.pow(getHeight(), 2));
+		return width + height + Math.sqrt(Math.pow(width, 2) + Math.pow(height, 2));
 	}
 }

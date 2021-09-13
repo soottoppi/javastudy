@@ -1,25 +1,28 @@
 package prob6;
 
 public class Rectangle extends Shape implements Resizable {
-
+	private double width;
+	private double height;
+	
 	public Rectangle(double width, double height) {
-		super(width, height);
+		this.width = width;
+		this.height = height;
 	}
 
 	@Override
 	public double getArea() {
-		return (getWidth() * getHeight());
+		return (width * height);
 	}
 
 	@Override
 	public void resize(double d) {
-		setWidth(getWidth() * d);
-		setHeight(getHeight() * d);
+		width *= d;
+		height *= d;
 	}
 
 	@Override
 	public double getPerimeter() {
 		// TODO Auto-generated method stub
-		return (getWidth() + getHeight()) * 2;
+		return (width + height) * 2;
 	}
 }
