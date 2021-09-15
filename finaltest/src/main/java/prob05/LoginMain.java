@@ -45,30 +45,30 @@ public class LoginMain {
 		// 6	pw가 맞으면 return
 		// 7	모든 리스트를 체크 후 빠져 나왔을 경우 해당 id가 없는것으로 판단
 		// 8	UserNotFoundException 예외 발생
-//		for(User userList : users) {
-// 			if(user instanceof User) {
-//				if(!userList.getId().equals(user.getId())) {
-//					continue;
-//				} else if(!userList.getPassword().equals(user.getPassword())) {
-//					throw new PasswordDismatchException();	// id는 일치하지만 pw를 틀릴 경우 예외 발생
-//				} else {
-//					return;
-//				}
-//			}
-//		}
-		String getId = user.getId();
-		String getPassword = user.getPassword();
-		if(users.contains(user)) {
-			User tmp = users.get(users.indexOf(getId));
-			if(tmp.equals(getId)) {
-				if(tmp.equals(getPassword)) {
-					return;
+		for(User userList : users) {
+ 			if(user instanceof User) {
+				if(!userList.getId().equals(user.getId())) {
+					continue;
+				} else if(!userList.getPassword().equals(user.getPassword())) {
+					throw new PasswordDismatchException();	// id는 일치하지만 pw를 틀릴 경우 예외 발생
 				} else {
-					throw new PasswordDismatchException();
+					return;
 				}
-			} 
-		} else {
-			throw new UserNotFoundException();
+			}
 		}
+//		String getId = user.getId();
+//		String getPassword = user.getPassword();
+//		if(users.contains(user)) {
+//			User tmp = users.get(users.indexOㅌf(getId));
+//			if(tmp.equals(getId)) {
+//				if(tmp.equals(getPassword)) {
+//					return;
+//				} else {
+//					throw new PasswordDismatchException();
+//				}
+//			} 
+//		} else {
+//			throw new UserNotFoundException();
+//		}
 	}
 }
