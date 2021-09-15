@@ -51,8 +51,13 @@ public class TCPServer {
 						break;
 					}
 					
+					// 디코딩
 					String data = new String(buffer, 0, readByteCount, "utf-8");
 					System.out.println("[Server] received : " + data);
+					
+					// 5. 데이터 쓰기
+					os.write(data.getBytes("utf-8")); 
+
 				}
 			} catch (SocketException ex) {
 				System.out.println("[Server] suddenly closed by client");
