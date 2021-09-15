@@ -23,6 +23,10 @@ public class EchoServer {
 			log("starts... [port : " + SERVER_PORT + "]");
 
 			Socket socket = serverSocket.accept();
+			InetSocketAddress inetRemoteSocketAddress = (InetSocketAddress) socket.getRemoteSocketAddress();
+			String remoteHostAddress = inetRemoteSocketAddress.getAddress().getHostAddress();
+			int remoteHostPort = inetRemoteSocketAddress.getPort();
+			log("connetcted by client[" + remoteHostAddress + ":" + remoteHostPort + "]");
 
 			try {
 				// socket.getInputStream();
