@@ -39,7 +39,7 @@ public class ChatServerThread extends Thread {
 			while (true) {
 				String request = br.readLine();
 				if (request == null) {
-					log("클라이언트로부터 연결 끊김");
+					log("클라이언트로부터 연결이 끊어졌습니다" + "[" + remoteHostAddress + ":" + remoteHostPort + "]");
 					doQuit(pw);
 					break;
 				}
