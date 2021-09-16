@@ -50,20 +50,19 @@ public class ChatClientApp {
 			pw.flush();
 
 			// 6. CharClientReceiveThread 시작
-			new ChatClientReceiveThread(br).start();
+			new ChatClientReceiveThread(socket, br).start();
 
 			// 7. 키보드 입력 처리
 			while (true) {
 				String input = scanner.nextLine();
 
 				if ("quit".equals(input)) {
-					// quit 처리
-					pw.println("quit:");
-					pw.flush();
+					// 서버에 quit 송신 후 종료
+					sendQuit();
 					break;
 				} else {
-					// message 처리
-					pw.println("message:" + input);
+					// 서버에 message 송신
+					sendMessage(input);
 				}
 			}
 
@@ -75,9 +74,32 @@ public class ChatClientApp {
 			if (scanner != null) {
 				scanner.close();
 			}
+			try {
+				if (socket != null && !socket.isClosed()) {
+					socket.close();
+				}
+				if (br != null) {
+					br.close();
+				}
+				if (pw != null) {
+					pw.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 
 //		new ChatWindow(nickName).show();
+	}
+
+	private static void sendMessage(String input) {
+		pw.println("message:" + input);
+
+	}
+
+	private static void sendQuit() {
+		pw.println("quit:");
+		pw.flush();
 	}
 
 	private static void log(String log) {

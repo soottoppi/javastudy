@@ -16,7 +16,7 @@ public class ChatServerThread extends Thread {
 	private List<Writer> listWriters;
 	private BufferedReader br = null;
 	private PrintWriter pw = null;
-	
+
 	public ChatServerThread(Socket socket, List<Writer> listWriters) {
 		this.socket = socket;
 		this.listWriters = listWriters;
@@ -67,6 +67,13 @@ public class ChatServerThread extends Thread {
 					socket.close();
 					log("클라이언트로부터 연결이 끊어졌습니다" + "[" + remoteHostAddress + ":" + remoteHostPort + "]");
 				}
+				if (br != null) {
+					br.close();
+				}
+				if (pw != null) {
+					pw.close();
+				}
+
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -94,7 +101,7 @@ public class ChatServerThread extends Thread {
 
 		// writer 등록
 		addWriter(pw);
-		
+
 		// ack
 		pw.println("join:대화방에 입장하셨습니다.");
 		pw.flush();
@@ -109,13 +116,13 @@ public class ChatServerThread extends Thread {
 			pw.flush();
 		}
 	}
-	
+
 	private void removeWriter(PrintWriter pw) {
 		// listWriter에서 pw를 찾아 삭제
-		synchronized(pw) {
-			listWriters.remove(pw);	
+		synchronized (pw) {
+			listWriters.remove(pw);
 		}
-		
+
 	}
 
 	private void addWriter(PrintWriter pw) {

@@ -2,23 +2,30 @@ package chat;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.net.Socket;
-import java.net.SocketException;
 
 public class ChatClientReceiveThread extends Thread {
+	private Socket socket = null;
 	private BufferedReader br = null;
 
-	public ChatClientReceiveThread(BufferedReader br) {
+	public ChatClientReceiveThread(Socket socket, BufferedReader br) {
+		this.socket = socket;
 		this.br = br;
 	}
 
 	@Override
 	public void run() {
+		// Remote Host Information
+		InetSocketAddress inetRemoteSocketAddress = (InetSocketAddress) socket.getRemoteSocketAddress();
+		String remoteHostAddress = inetRemoteSocketAddress.getAddress().getHostAddress();
+		int remoteHostPort = inetRemoteSocketAddress.getPort();
+
 		try {
 			while (true) {
 				String response = br.readLine();
 				if (response == null) {
-					log("closed by server");
+					log("서버로부터 연결이 끊어졌습니다" + "[" + remoteHostAddress + ":" + remoteHostPort + "]");
 					break;
 				}
 
@@ -32,11 +39,8 @@ public class ChatClientReceiveThread extends Thread {
 				}
 			}
 			
-		} catch (SocketException e) {
-			log("error : " + e);
 		} catch (IOException e) {
-			log("error2 : " + e);
-
+			log("error : " + e);
 		} 
 	}
 
