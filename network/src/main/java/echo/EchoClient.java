@@ -37,8 +37,10 @@ public class EchoClient {
 
 				// 보내기
 				pw.println(line);
+				
 				String data = br.readLine();
 				if (data == null) {
+					
 					log("closed by server");
 					break;
 				}
