@@ -50,7 +50,7 @@ public class ChatClientApp {
 			pw.flush();
 
 			// 6. CharClientReceiveThread 시작
-			new ChatClientReceiveThread(socket, br).start();
+			new ChatClientReceiveThread(br).start();
 
 			// 7. 키보드 입력 처리
 			while (true) {
