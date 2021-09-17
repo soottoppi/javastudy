@@ -25,7 +25,7 @@ public class ChatClientReceiveThread extends Thread {
 			while (true) {
 				String response = br.readLine();
 				if (response == null) {
-					log("서버로부터 연결이 끊어졌습니다" + "[" + remoteHostAddress + ":" + remoteHostPort + "]");
+					log("서버로부터 연결이 끊어졌습니다." + "[" + remoteHostAddress + ":" + remoteHostPort + "]");
 					break;
 				}
 

@@ -11,7 +11,7 @@ import java.net.SocketException;
 import java.util.Scanner;
 
 public class ChatClientApp {
-	private static final String SERVER_IP = "127.0.0.1";
+	private static final String SERVER_IP = "0.0.0.0";
 	private static final int SERVER_PORT = 6000;
 	private static BufferedReader br;
 	private static PrintWriter pw;
@@ -50,7 +50,8 @@ public class ChatClientApp {
 			pw.flush();
 
 			// 6. CharClientReceiveThread 시작
-			new ChatClientReceiveThread(socket, br).start();
+			ChatClientReceiveThread clientReceiveThread = new ChatClientReceiveThread(socket, br);
+			clientReceiveThread.start();
 
 			// 7. 키보드 입력 처리
 			while (true) {
@@ -59,6 +60,11 @@ public class ChatClientApp {
 				if ("quit".equals(input)) {
 					// 서버에 quit 송신 후 종료
 					sendQuit();
+					try {
+						clientReceiveThread.join();
+					} catch (InterruptedException e) {
+						log("error : " + e);
+					}
 					break;
 				} else {
 					// 서버에 message 송신
@@ -94,12 +100,12 @@ public class ChatClientApp {
 
 	private static void sendMessage(String input) {
 		pw.println("message:" + input);
-
 	}
 
 	private static void sendQuit() {
-		pw.println("quit:");
+		pw.println("quit");
 		pw.flush();
+		System.out.println();
 	}
 
 	private static void log(String log) {

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ChatServerApp extends Thread {
-	private static final String SERVER_IP = "127.0.0.1";
+	private static final String SERVER_IP = "0.0.0.0";
 	private static final int SERVER_PORT = 6000;
 	private static List<Writer> listWriters = new ArrayList<Writer>();
 
@@ -24,7 +24,7 @@ public class ChatServerApp extends Thread {
 			// 2. 바인딩
 			String hostAddress = InetAddress.getLocalHost().getHostAddress();
 			serverSocket.bind(new InetSocketAddress(SERVER_IP, SERVER_PORT));
-			log("연결 기다림 " + hostAddress + ":" + SERVER_PORT);
+			log("클라이언트의 연결을 기다리는중... " + hostAddress + ":" + SERVER_PORT);
 
 			// 3. 요청 대기
 			while (true) {

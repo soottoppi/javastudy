@@ -39,7 +39,7 @@ public class ChatServerThread extends Thread {
 			while (true) {
 				String request = br.readLine();
 				if (request == null) {
-					log("클라이언트로부터 연결이 끊어졌습니다" + "[" + remoteHostAddress + ":" + remoteHostPort + "]");
+					log("클라이언트로부터 연결이 끊어졌습니다." + "[" + remoteHostAddress + ":" + remoteHostPort + "]");
 					doQuit(pw);
 					break;
 				}
@@ -65,7 +65,7 @@ public class ChatServerThread extends Thread {
 			try {
 				if (socket != null && socket.isClosed() == false) {
 					socket.close();
-					log("클라이언트로부터 연결이 끊어졌습니다" + "[" + remoteHostAddress + ":" + remoteHostPort + "]");
+					log("클라이언트로부터 연결이 끊어졌습니다." + "[" + remoteHostAddress + ":" + remoteHostPort + "]");
 				}
 				if (br != null) {
 					br.close();
@@ -132,7 +132,7 @@ public class ChatServerThread extends Thread {
 	}
 
 	private void log(String log) {
-		System.out.println("[ServerThread]  " + log);
+		System.out.println("[ServerThread] " + log);
 	}
 
 }
