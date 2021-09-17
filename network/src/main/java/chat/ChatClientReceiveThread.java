@@ -38,10 +38,10 @@ public class ChatClientReceiveThread extends Thread {
 					echoQuit(tokens[1]);
 				}
 			}
-			
+
 		} catch (IOException e) {
 			log("error : " + e);
-		} 
+		}
 	}
 
 	private void echoQuit(String msg) {
