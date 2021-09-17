@@ -97,7 +97,7 @@ public class ChatClientApp {
 			}
 		}
 
-//		new ChatWindow(nickName).show();
+		// new ChatWindow(nickName).show();
 	}
 
 	private static void sendMessage(String input) {

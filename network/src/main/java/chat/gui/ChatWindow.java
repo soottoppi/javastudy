@@ -1,4 +1,4 @@
-package chat;
+package chat.gui;
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Color;
@@ -33,12 +33,13 @@ public class ChatWindow {
 		// Button
 		buttonSend.setBackground(Color.GRAY);
 		buttonSend.setForeground(Color.WHITE);
-		buttonSend.addActionListener( new ActionListener() {
-			@Override
-			public void actionPerformed( ActionEvent actionEvent ) {
-				sendMessage();
-			}
-		});
+		
+		// 인터페이스 메소드가 하나인 경우에만 람다식으로 추론해냄
+		// buttonSend.addActionListener(  ( actionEvent ) -> System.out.println("Click!!!!"));
+		buttonSend.addActionListener(  ( actionEvent ) -> {
+				System.out.println("Click!!!!");
+//				sendMessage();
+		});	 
 
 		// Textfield
 		textField.setColumns(80);

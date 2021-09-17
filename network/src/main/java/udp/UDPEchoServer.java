@@ -6,7 +6,8 @@ import java.net.DatagramSocket;
 import java.net.SocketException;
 
 public class UDPEchoServer {
-	private static final int PORT = 7000;
+	public static final int PORT = 7000;
+	public static final int BUFFER_SIZE = 1024;
 
 	public static void main(String[] args) {
 		DatagramSocket socket = null;
@@ -32,13 +33,13 @@ public class UDPEchoServer {
 						sndData.length, 
 						rcvPacket.getAddress(), 
 						PORT);
+				socket.send(sndPacket);
 			}
 		} catch (SocketException e) {
 			System.out.println("error : " + e);
 		} catch (IOException e) {
 			System.out.println("error : " + e);
 		} finally {
-
 			if (socket != null & !socket.isClosed()) {
 				socket.close();
 			}
