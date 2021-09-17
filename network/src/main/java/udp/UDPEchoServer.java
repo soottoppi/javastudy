@@ -18,8 +18,8 @@ public class UDPEchoServer {
 			while(true) {
 				// 2. 데이터 수신
 				DatagramPacket rcvPacket = new DatagramPacket(new byte[1024], 1024);
-				socket.receive(rcvPacket);
-
+				socket.receive(rcvPacket); // blocking
+				
 				byte[] rcvData = rcvPacket.getData();
 				int length = rcvPacket.getLength();
 				String message = new String(rcvData, 0, length, "utf-8");
@@ -32,7 +32,7 @@ public class UDPEchoServer {
 						sndData, 
 						sndData.length, 
 						rcvPacket.getAddress(), 
-						PORT);
+						rcvPacket.getPort());
 				socket.send(sndPacket);
 			}
 		} catch (SocketException e) {

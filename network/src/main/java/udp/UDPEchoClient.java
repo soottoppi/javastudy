@@ -31,7 +31,9 @@ public class UDPEchoClient {
 
 				// 보내기
 				byte[] sndData = line.getBytes("utf-8");
-				DatagramPacket sndPacket = new DatagramPacket(sndData, sndData.length,
+				DatagramPacket sndPacket = new DatagramPacket(
+						sndData, 
+						sndData.length,
 						new InetSocketAddress(SERVER_IP, SERVER_PORT));
 				socket.send(sndPacket);
 
