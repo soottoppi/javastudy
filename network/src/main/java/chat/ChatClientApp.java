@@ -58,13 +58,15 @@ public class ChatClientApp {
 				String input = scanner.nextLine();
 
 				if ("quit".equals(input)) {
-					// 서버에 quit 송신 후 종료
+					// 서버에 quit 송신
 					sendQuit();
 					try {
+						// clientReceive 쓰레드 정상 종료를 기다림
 						clientReceiveThread.join();
 					} catch (InterruptedException e) {
 						log("error : " + e);
 					}
+					// 종료
 					break;
 				} else {
 					// 서버에 message 송신
