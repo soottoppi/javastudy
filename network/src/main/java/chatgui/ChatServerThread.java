@@ -62,7 +62,6 @@ public class ChatServerThread extends Thread {
 		} catch (IOException e) {
 			// 클라이언트 소켓이 닫혔을 때
 			doQuit(pw);
-			log("error : " + e);
 		} finally {
 			try {
 				if (socket != null && socket.isClosed() == false) {

@@ -18,6 +18,7 @@ public class ChatClientApp {
 	public static void main(String[] args) {
 		
 		String nickName = null;
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		Socket socket = null;
 
@@ -54,7 +55,6 @@ public class ChatClientApp {
 			if ("join".equals(tokens[0])) {
 				new ChatWindow(nickName, socket, br, pw).show();
 			} else {
-				System.out.println("join 아님");
 				return;
 			}
 		} catch (SocketException e) {
