@@ -3,6 +3,7 @@ package chatgui;
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Frame;
 import java.awt.Panel;
 import java.awt.TextArea;
@@ -72,8 +73,9 @@ public class ChatWindow {
 
 		// TextArea
 		textArea.setEditable(false);
+		textArea.setFont(new Font("Consolas", Font.BOLD, 16));
 		frame.add(BorderLayout.CENTER, textArea);
-
+		
 		// Frame
 		frame.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
