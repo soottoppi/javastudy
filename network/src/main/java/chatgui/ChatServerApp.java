@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ChatServerApp extends Thread {
 	private static final String SERVER_IP = "0.0.0.0";
-	private static final int SERVER_PORT = 6000;
+	private static final int SERVER_PORT = 6100;
 	private static List<Writer> listWriters = new ArrayList<Writer>();
 
 	public static void main(String[] args) {

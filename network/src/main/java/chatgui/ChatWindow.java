@@ -99,7 +99,7 @@ public class ChatWindow {
 	}
 
 	private static void sendQuit() {
-		pw.println("quit");
+		pw.println("quit:");
 		pw.flush();
 	}
 	
@@ -118,6 +118,10 @@ public class ChatWindow {
 			// 종료
 			return;
 		} else {
+			// 입력값없이 바로 엔터 쳤을 경우
+			if("".equals(message)) {
+				message = " ";
+			}
 			// 서버에 message 송신
 			pw.println("message:" + message);
 			
@@ -151,6 +155,9 @@ public class ChatWindow {
 			try {
 				while (true) {
 					String response = br.readLine();
+					if(response == null) {
+						break;
+					}
 					// response
 					String[] tokens = response.split(":");
 					if ("join".equals(tokens[0])) {
